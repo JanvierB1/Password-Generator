@@ -1,6 +1,20 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+function randomInt(min, max) {
+  if (!max) {
+    max = min
+    min = 0
+  }
+  var rand = Math.random()
+  return Math.floor(min*(1 - min) + rand*max)
+}
+
+function randomItem(list) {
+  return list[randomInt(list.length)]
+}
+
+
 function generatePassword() {
   
   var userinput = window.prompt("How long do you want the password to be?")
@@ -34,30 +48,34 @@ function generatePassword() {
   }
 
   if (userNumbers === true) {
-    optionlist = optionlist.concat(numberList)
+    optionlist.push(numberList)
   }
 
   if (usersymbols === true) {
-    optionlist =  optionlist.concat(symbolList)
+    optionlist.push(symbolList)
   }
 
   if (userLowercase === true) {
-    optionlist = optionlist.concat(lowercaseList)
+    optionlist.push(lowercaseList)
   }
 
   if (userUppercase === true) {
-    optionlist = optionlist.concat(uppercaseList)
+    optionlist.push(uppercaseList)
   }
 
-  var index = Math.floor(Math.random() * optionlist.length);
-  console.log("index", index)
-  console.log("optionlist", optionlist)
-  window.alert(optionlist[index])
+  if (optionlist.length ===0) {
+    optionlist.push(numberList)
+  }
+
+  var generatedPassword = ""
 
   for (var i = 0; i < passwordLength; i++) {
-    numberList[Math.floor(Math.random() * numberList.length)]
+    var randomlist = randomItem(optionlist)
+    var randomchar = randomItem(randomlist)
+    generatedPassword += randomchar
   }
-
+  
+  return generatedPassword
 }
 
 // Write password to the #password input
