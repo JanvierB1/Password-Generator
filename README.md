@@ -8,7 +8,7 @@ With all the apps and website a person has to sign up for, a password is necesar
 
 To use this webiste it is fairly simple, all a user has to do is follow the link and enter the website and from there a red button with the generate password will be displayed. The user with click the button and will be presented with a variety of options on how they want the password to be. After all the options have been selected the user will be prompt with their randomly generated password.
 
-Here is the link:
+Here is the link: https://janvierb1.github.io/Password-generator/
 
 
 
